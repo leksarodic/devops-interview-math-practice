@@ -41,9 +41,7 @@
 
   body {
     @apply font-sans;
-    background:
-      radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 48%),
-      var(--bg);
+    background: var(--bg);
   }
 
   a {
@@ -287,7 +285,7 @@
   }
 
   .site-footer-copy {
-    @apply m-0 text-center;
+    @apply m-0 text-left;
   }
 
   .site-footer-links-wrap {
