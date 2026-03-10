@@ -38,6 +38,8 @@ jobs:
       - name: Build static export
         env:
           GITHUB_PAGES: "true"
+          GITHUB_PAGES_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: "https://interview.ar.in.rs"
         run: npm run build
 
       - name: Add .nojekyll
