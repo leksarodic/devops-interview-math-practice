@@ -3,6 +3,11 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteNav } from '@/components/site-nav';
 import './globals.css';
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
+const isUserPage = repositoryName.endsWith('.github.io');
+const basePath = isGitHubPages && repositoryName && !isUserPage ? `/${repositoryName}` : '';
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: {
@@ -13,7 +18,7 @@ export const metadata: Metadata = {
   keywords: ['aws interview', 'sre interview', 'operations math', 'infrastructure practice', 'mental math'],
   applicationName: 'DevOps Interview Math Practice',
   icons: {
-    icon: '/icon.svg'
+    icon: `${basePath}/icon.svg`
   }
 };
 
